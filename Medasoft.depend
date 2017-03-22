@@ -1,14 +1,15 @@
 # depslib dependency file v1.0
-1490156848 source:c:\users\javiles\documents\projects\c\medasoft\invtools.c
+1490158097 source:c:\users\javiles\documents\projects\c\medasoft\invtools.c
 	"invtools.h"
 	<stdio.h>
 
 1490155385 c:\users\javiles\documents\projects\c\medasoft\invtools.h
 
-1490156975 source:c:\users\javiles\documents\projects\c\medasoft\main.c
+1490159080 source:c:\users\javiles\documents\projects\c\medasoft\main.c
 	<stdio.h>
 	<stdlib.h>
 	"menu.h"
+	"factory.h"
 
 1490156961 c:\users\javiles\documents\projects\c\medasoft\menu.c
 	"menu.h"
@@ -17,7 +18,7 @@
 	"product.h"
 	<stdlib.h>
 
-1490155385 c:\users\javiles\documents\projects\c\medasoft\menu.h
+1490159761 c:\users\javiles\documents\projects\c\medasoft\menu.h
 
 1490156848 c:\users\javiles\documents\projects\c\medasoft\invtools.c
 	"invtools.h"
@@ -29,14 +30,26 @@
 
 1490157586 c:\users\javiles\documents\projects\c\medasoft\product.h
 
-1490156961 source:c:\users\javiles\documents\projects\c\medasoft\menu.c
-	"menu.h"
+1490160941 source:c:\users\javiles\documents\projects\c\medasoft\menu.c
 	<stdio.h>
+	<stdlib.h>
 	"invtools.h"
 	"product.h"
-	<stdlib.h>
+	"productcategory.h"
+	"menu.h"
 
 1490157610 source:c:\users\javiles\documents\projects\c\medasoft\product.c
 	"product.h"
 	<string.h>
+
+1490159201 source:c:\users\javiles\documents\projects\c\medasoft\factory.c
+	"factory.h"
+
+1490158744 c:\users\javiles\documents\projects\c\medasoft\factory.h
+	"product.h"
+
+1490160906 c:\users\javiles\documents\projects\c\medasoft\productcategory.h
+
+1490160890 source:c:\users\javiles\documents\projects\c\medasoft\productcategory.c
+	"productcategory.h"
 

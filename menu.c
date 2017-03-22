@@ -1,8 +1,9 @@
-#include "menu.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include "invtools.h"
 #include "product.h"
-#include <stdlib.h>
+#include "productcategory.h"
+#include "menu.h"
 
 int printProduct(int index)
 {
@@ -161,6 +162,45 @@ void m_addProduct()
   menu();
 }
 
+void m_addProdCategory()
+{
+  clearScreen();
+
+  int id;
+  char name[MAX];
+
+  printf("==================================================\n");
+  printf("ADICION DE CATEGORIAS A INVENTARIO");
+  printf("\n==================================================\n");
+
+  printf("ID: ");
+  scanf("%d", &id);
+  clear_newlines();
+  printf("\nNombre: ");
+  fgets(name, 50, stdin);
+
+  if(addProdCategory(id,name) < 0)
+  {
+    printf("\n==================================================\n");
+    printf("Hubo un error agregando la categoria");
+    printf("\n==================================================\n");
+    printf("Presione una tecla para continuar");
+    clear_newlines();
+    getchar();
+  }
+  else
+  {
+    printf("\n==================================================\n");
+    printf("Categoria agregada exitosamente!");
+    printf("\n==================================================\n");
+    printf("Presione una tecla para continuar");
+    clear_newlines();
+    getchar();
+  }
+  menu();
+}
+
+
 void menu()
 {
   int option;
@@ -172,7 +212,10 @@ void menu()
   printf("1.  Agregar producto\n");
   printf("2.  Buscar producto\n");
   printf("3.  Eliminar producto\n");
-  printf("4.  Salir\n");
+  printf("4.  Agregar Categoria\n");
+  printf("5.  Mostrar Categorias\n");
+  printf("6.  Eliminar Categoria\n");
+  printf("0.  Salir\n");
   scanf("%d", &option);
 
   if(option == 1)
@@ -188,9 +231,15 @@ void menu()
   else if(option == 3)
   {
     clearScreen();
-    m_deleteProduct();
+    m_addProdCategory();
   }
+
   else if(option == 4)
+  {
+    clearScreen();
+    m_addProdCategory();
+  }
+  else if(option == 0)
   {
     exit(0);
   }

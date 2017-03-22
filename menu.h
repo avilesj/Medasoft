@@ -2,9 +2,16 @@
 #define MENU_H_
 
 void menu();
+/*Product menu*/
+int printProduct(int id);
 void m_addProduct();
 void m_searchProduct();
 void m_deleteProduct();
-int printProduct(int id);
+
+/*Product Category menu */
+int printProdCategory(int id);
+void m_addProdCategory();
+void m_listProdCategories();
+void m_deleteProdCategory();
 
 #endif
