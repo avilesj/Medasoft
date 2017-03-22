@@ -1,7 +1,7 @@
 #include "menu.h"
 #include <stdio.h>
-#include "invtools.c"
-#include "product.c"
+#include "invtools.h"
+#include "product.h"
 #include <stdlib.h>
 
 int printProduct(int index)
@@ -31,7 +31,7 @@ void m_deleteProduct()
   printf("Favor escriba el ID del producto a eliminar: ");
   scanf("%d", &product_id);
 
-  int search = searchProduct(product_id); 
+  int search = searchProduct(product_id);
   if(search >= 0)
   {
     printProduct(search);
@@ -77,7 +77,7 @@ void m_searchProduct()
   printf("Favor escriba el numero de ID del numero: ");
   scanf("%d", &product_id);
 
-  int search = searchProduct(product_id); 
+  int search = searchProduct(product_id);
   if(search >= 0)
   {
     printProduct(search);

@@ -16,7 +16,7 @@ struct product
 
 static const struct product EmptyProduct;
 
-int current = 0;
+int currentProducts;
 
 int addProduct(int id, float basePrice, float sellingPrice, float upperPercentage, float lowerPercentage, char name[MAX], char measureUnit[5], char category[MAX],
     char creationDate[10]);

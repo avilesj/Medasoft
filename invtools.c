@@ -1,14 +1,20 @@
 #include "invtools.h"
 #include <stdio.h>
-/*
-Function to clear screen on Linux
-*/
+
+/*Different implementations of the clearScreen functions depending on the OS*/
+#ifdef _WIN32
 void clearScreen()
 {
-  printf("\033c");
+ system("cls");
 }
+#else
+void clearScreen()
+{
+  //printf("\033c"); <- LINUX ONLY
+}
+#endif
 
-void clear_newlines(void)
+void clear_newlines()
 {
   int c;
   do

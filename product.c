@@ -1,12 +1,14 @@
 #include "product.h"
 #include <string.h>
 
+currentProducts = 0;
+
 int validateUpperPercentage(float percentage)
 {
   if(percentage <=15)
   {
     return 0;
-  }  
+  }
   else
   {
     return -1;
@@ -18,7 +20,7 @@ int validateLowerPercentage(float percentage)
   if(percentage <=10)
   {
     return 0;
-  }  
+  }
   else
   {
     return -1;
@@ -47,7 +49,7 @@ int searchProduct(int id)
     }
   }
 
-  return -1; 
+  return -1;
 }
 
 int addProduct(int id, float basePrice, float sellingPrice, float upperPercentage, float lowerPercentage, char name[MAX], char measureUnit[5], char category[MAX],
@@ -73,16 +75,16 @@ int addProduct(int id, float basePrice, float sellingPrice, float upperPercentag
   }
   else
   {
-    stock[current].id = id;
-    memcpy(stock[current].name, name, 50);
-    memcpy(stock[current].measureUnit, measureUnit, 50);
-    memcpy(stock[current].category, category, 50);
-    memcpy(stock[current].creationDate, creationDate, 50);
-    stock[current].basePrice = basePrice;
-    stock[current].sellingPrice = sellingPrice;
-    stock[current].upperPercentage = upperPercentage;
-    stock[current].lowerPercentage = lowerPercentage;
-    current++;
+    stock[currentProducts].id = id;
+    memcpy(stock[currentProducts].name, name, 50);
+    memcpy(stock[currentProducts].measureUnit, measureUnit, 50);
+    memcpy(stock[currentProducts].category, category, 50);
+    memcpy(stock[currentProducts].creationDate, creationDate, 50);
+    stock[currentProducts].basePrice = basePrice;
+    stock[currentProducts].sellingPrice = sellingPrice;
+    stock[currentProducts].upperPercentage = upperPercentage;
+    stock[currentProducts].lowerPercentage = lowerPercentage;
+    currentProducts++;
     return 0;
   }
 }
