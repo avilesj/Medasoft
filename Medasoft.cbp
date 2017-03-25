@@ -30,7 +30,16 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-std=c99" />
 		</Compiler>
+		<Unit filename="README.md" />
+		<Unit filename="factory.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="factory.h">
+			<Option target="Debug" />
+		</Unit>
 		<Unit filename="invtools.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -46,6 +55,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="product.h" />
+		<Unit filename="productcategory.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="productcategory.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
