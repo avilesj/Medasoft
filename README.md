@@ -4,10 +4,10 @@ Inventory Software for MEDASOFT inc.
 
 Requirements [Second run]
   - Manage price list []
-  - Manage suppliers [CURRENT-M]
+  - Manage suppliers [CURRENT]
     - Tie suppliers to price lists []
   - Manage unit measures []
-  - Manage product categories [CURRENT-J]
+  - Manage product categories [CURRENT]
   - Manage products []
     - Tie products to product categories []
   - Inventory Transactions []
