@@ -19,6 +19,14 @@ int printProduct(int index)
   printf("\tPorcentaje inferior: %f\n\n", stock[index].lowerPercentage);
 }
 
+
+int printProductCategory(int index)
+{
+  printf("\n");
+  printf("\tID: %d\n", productCategories[index].id);
+  printf("\tNombre: %s", productCategories[index].name);
+}
+
 void m_deleteProduct()
 {
 
@@ -100,12 +108,49 @@ void m_searchProduct()
 
 
 }
+
+
+void m_searchProductCategory()
+{
+
+  int id;
+  printf("==================================================\n");
+  printf("BUSQUEDA DE CATEGORIAS EN INVENTARIO");
+  printf("\n==================================================\n");
+
+
+  printf("Favor escriba el ID de la categoria a consultar: ");
+  scanf("%d", &id);
+
+  int search = searchProdCategory(id);
+  if(search >= 0)
+  {
+    printProductCategory(search);
+  }
+  else
+  {
+    clearScreen();
+    printf("Categoria no encontrado\n\n");
+
+  }
+
+
+  printf("\n==================================================\n");
+  printf("Presione una tecla para continuar");
+  printf("\n==================================================\n");
+  clear_newlines();
+  getchar();
+  menu();
+
+
+}
+
 void m_addProduct()
 {
   clearScreen();
 
   int id;
-  char name[MAX];
+  char name[MAX_NAME];
   float basePrice;
   char measureUnit[5];
   char category[50];
@@ -167,7 +212,7 @@ void m_addProdCategory()
   clearScreen();
 
   int id;
-  char name[MAX];
+  char name[MAX_NAME];
 
   printf("==================================================\n");
   printf("ADICION DE CATEGORIAS A INVENTARIO");
@@ -238,6 +283,12 @@ void menu()
   {
     clearScreen();
     m_addProdCategory();
+  }
+
+  else if(option == 5)
+  {
+    clearScreen();
+    m_searchProductCategory();
   }
   else if(option == 0)
   {

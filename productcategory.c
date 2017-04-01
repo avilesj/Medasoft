@@ -2,7 +2,7 @@
 
 int currentProdCategories = 0;
 
-int addProdCategory(int id, char name[MAX])
+int addProdCategory(int id, char name[MAX_NAME])
 {
     if(searchProdCategory(id) != -1)
     {
@@ -19,7 +19,7 @@ int addProdCategory(int id, char name[MAX])
 
 int searchProdCategory(int id)
 {
-    for(int i =0; i < MAX; i++)
+    for(int i =0; i < MAX_CATEGORIES; i++)
     {
         if(productCategories[i].id == id)
         {
