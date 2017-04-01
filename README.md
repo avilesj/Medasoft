@@ -2,7 +2,7 @@
 
 Inventory Software for MEDASOFT inc.
 
-Requirements [Second run]
+Requirements
   - Manage price list [M-1]
   - Manage suppliers [M-2]
     - Tie suppliers to price lists []
