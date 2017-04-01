@@ -1,24 +1,26 @@
 #ifndef PRODUCT_H_
 #define PRODUCT_H_
-#define MAX 50
+#define MAX_NAME 50
+#define MAX_STOCK 50
+#define MAX_CATEGORY 50
 struct product
 {
       int id;
-      char name[50];
+      char name[MAX_NAME];
       char measureUnit[5];
-      char category[50];
+      char category[MAX_CATEGORY];
       char creationDate[10];
       float basePrice;
       float sellingPrice;
       float upperPercentage;
       float lowerPercentage;
-}stock[MAX];
+}stock[MAX_STOCK];
 
 static const struct product EmptyProduct;
 
 int currentProducts;
 
-int addProduct(int id, float basePrice, float sellingPrice, float upperPercentage, float lowerPercentage, char name[MAX], char measureUnit[5], char category[MAX],
+int addProduct(int id, float basePrice, float sellingPrice, float upperPercentage, float lowerPercentage, char name[MAX_NAME], char measureUnit[5], char category[MAX_CATEGORY],
     char creationDate[10]);
 int searchProduct(int index);
 int validateUpperPercentage(float percentage);

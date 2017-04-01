@@ -28,7 +28,7 @@
 	"product.h"
 	<string.h>
 
-1490157586 c:\users\javiles\documents\projects\c\medasoft\product.h
+1491061261 c:\users\javiles\documents\projects\c\medasoft\product.h
 
 1490160941 source:c:\users\javiles\documents\projects\c\medasoft\menu.c
 	<stdio.h>
@@ -38,7 +38,7 @@
 	"productcategory.h"
 	"menu.h"
 
-1490157610 source:c:\users\javiles\documents\projects\c\medasoft\product.c
+1491061323 source:c:\users\javiles\documents\projects\c\medasoft\product.c
 	"product.h"
 	<string.h>
 
@@ -50,6 +50,6 @@
 
 1490160906 c:\users\javiles\documents\projects\c\medasoft\productcategory.h
 
-1490160890 source:c:\users\javiles\documents\projects\c\medasoft\productcategory.c
+1490161080 source:c:\users\javiles\documents\projects\c\medasoft\productcategory.c
 	"productcategory.h"
 

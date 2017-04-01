@@ -41,7 +41,7 @@ int validatePrice(float basePrice, float sellingPrice)
 
 int searchProduct(int id)
 {
-  for(int i =0; i < MAX; i++)
+  for(int i =0; i < MAX_STOCK; i++)
   {
     if(stock[i].id == id)
     {
@@ -52,7 +52,7 @@ int searchProduct(int id)
   return -1;
 }
 
-int addProduct(int id, float basePrice, float sellingPrice, float upperPercentage, float lowerPercentage, char name[MAX], char measureUnit[5], char category[MAX],
+int addProduct(int id, float basePrice, float sellingPrice, float upperPercentage, float lowerPercentage, char name[MAX_NAME], char measureUnit[5], char category[MAX_CATEGORY],
     char creationDate[10])
 {
   if(searchProduct(id) != -1)
