@@ -27,6 +27,55 @@ int printProductCategory(int index)
   printf("\tNombre: %s", productCategories[index].name);
 }
 
+
+void m_deleteProductCategory()
+{
+
+  int productCategory_id;
+  char decision;
+
+  printf("==================================================\n");
+  printf("ELIMINACION DE CATEGORIAS DE PRODUCTOS EN INVENTARIO");
+  printf("\n==================================================\n");
+
+
+  printf("Favor escriba el ID de la categoria de producto a eliminar: ");
+  scanf("%d", &productCategory_id);
+
+  int search = searchProdCategory(productCategory_id);
+  if(search >= 0)
+  {
+    printProductCategory(search);
+    printf("==================================================\n");
+    printf("ESTA SEGURO QUE DESEA ELIMINAR ESTA CATEGORIA?[Y/N]: ");
+    scanf(" %c", &decision);
+    if(decision == 'y' || decision =='Y')
+    {
+      productCategories[search] = emptyProductCategory;
+      clearScreen();
+      printf("Categoria eliminada exitosamente\n");
+    }
+    else
+    {
+      menu();
+    }
+  }
+  else
+  {
+    clearScreen();
+    printf("Categoria no encontrada\n\n");
+
+  }
+
+  printf("\n==================================================\n");
+  printf("Presione una tecla para continuar");
+  printf("\n==================================================\n");
+  clear_newlines();
+  getchar();
+  menu();
+
+}
+
 void m_deleteProduct()
 {
 
@@ -289,6 +338,11 @@ void menu()
   {
     clearScreen();
     m_searchProductCategory();
+  }
+  else if(option == 6)
+  {
+    clearScreen();
+    m_deleteProductCategory();
   }
   else if(option == 0)
   {

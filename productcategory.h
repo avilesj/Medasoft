@@ -8,11 +8,12 @@ struct productCategory
       char name[50];
 }productCategories[MAX_CATEGORIES];
 
-static const struct productCategory CategoryProduct;
+struct productCategory emptyProductCategory;
 
 int currentProdCategories;
 
 int addProdCategory(int id, char name[MAX_NAME]);
 int searchProdCategory(int index);
+int deleteProdCategory(int index);
 #endif
 

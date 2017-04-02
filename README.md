@@ -22,3 +22,4 @@ Requirements
 Tech
   - Pending refactors:
     - Menu
+    - Product deletion

@@ -7,6 +7,7 @@ int main()
 {
 /* TESTING ONLY */
 factoryAddProduct();
+factoryAddProductCategory();
 /* TESTING ONLY */
       menu();
 

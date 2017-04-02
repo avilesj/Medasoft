@@ -16,7 +16,7 @@ struct product
       float lowerPercentage;
 }stock[MAX_STOCK];
 
-static const struct product EmptyProduct;
+struct product EmptyProduct;
 
 int currentProducts;
 

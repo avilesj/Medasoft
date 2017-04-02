@@ -5,7 +5,7 @@
 
 1490155385 c:\users\javiles\documents\projects\c\medasoft\invtools.h
 
-1490159080 source:c:\users\javiles\documents\projects\c\medasoft\main.c
+1491173035 source:c:\users\javiles\documents\projects\c\medasoft\main.c
 	<stdio.h>
 	<stdlib.h>
 	"menu.h"
@@ -18,7 +18,7 @@
 	"product.h"
 	<stdlib.h>
 
-1490159761 c:\users\javiles\documents\projects\c\medasoft\menu.h
+1491172747 c:\users\javiles\documents\projects\c\medasoft\menu.h
 
 1490156848 c:\users\javiles\documents\projects\c\medasoft\invtools.c
 	"invtools.h"
@@ -28,9 +28,9 @@
 	"product.h"
 	<string.h>
 
-1491061261 c:\users\javiles\documents\projects\c\medasoft\product.h
+1491172237 c:\users\javiles\documents\projects\c\medasoft\product.h
 
-1491062205 source:c:\users\javiles\documents\projects\c\medasoft\menu.c
+1491172898 source:c:\users\javiles\documents\projects\c\medasoft\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"invtools.h"
@@ -42,14 +42,15 @@
 	"product.h"
 	<string.h>
 
-1490159201 source:c:\users\javiles\documents\projects\c\medasoft\factory.c
+1491172188 source:c:\users\javiles\documents\projects\c\medasoft\factory.c
 	"factory.h"
 
-1490158744 c:\users\javiles\documents\projects\c\medasoft\factory.h
+1491172446 c:\users\javiles\documents\projects\c\medasoft\factory.h
 	"product.h"
+	"productcategory.h"
 
-1491062337 c:\users\javiles\documents\projects\c\medasoft\productcategory.h
+1491172311 c:\users\javiles\documents\projects\c\medasoft\productcategory.h
 
-1491062344 source:c:\users\javiles\documents\projects\c\medasoft\productcategory.c
+1491172799 source:c:\users\javiles\documents\projects\c\medasoft\productcategory.c
 	"productcategory.h"
 

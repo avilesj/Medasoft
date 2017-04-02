@@ -11,7 +11,7 @@ void m_deleteProduct();
 /*Product Category menu */
 int printProdCategory(int id);
 void m_addProdCategory();
-void m_listProdCategories();
-void m_deleteProdCategory();
+void m_searchProductCategory();
+void m_deleteProductCategory();
 
 #endif

@@ -29,3 +29,9 @@ int searchProdCategory(int id)
 
     return -1;
 }
+
+int deleteProdCategory(int id)
+{
+    productCategories[id] = emptyProductCategory;
+    return 0;
+}
