@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1490158097 source:c:\users\javiles\documents\projects\c\medasoft\invtools.c
+1492112826 source:c:\users\javiles\documents\projects\c\medasoft\invtools.c
 	"invtools.h"
 	<stdio.h>
 
 1490155385 c:\users\javiles\documents\projects\c\medasoft\invtools.h
 
-1491173035 source:c:\users\javiles\documents\projects\c\medasoft\main.c
+1492112826 source:c:\users\javiles\documents\projects\c\medasoft\main.c
 	<stdio.h>
 	<stdlib.h>
 	"menu.h"
@@ -18,7 +18,7 @@
 	"product.h"
 	<stdlib.h>
 
-1491172747 c:\users\javiles\documents\projects\c\medasoft\menu.h
+1492471863 c:\users\javiles\documents\projects\c\medasoft\menu.h
 
 1490156848 c:\users\javiles\documents\projects\c\medasoft\invtools.c
 	"invtools.h"
@@ -28,9 +28,9 @@
 	"product.h"
 	<string.h>
 
-1491172237 c:\users\javiles\documents\projects\c\medasoft\product.h
+1492474278 c:\users\javiles\documents\projects\c\medasoft\product.h
 
-1491172898 source:c:\users\javiles\documents\projects\c\medasoft\menu.c
+1492474413 source:c:\users\javiles\documents\projects\c\medasoft\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"invtools.h"
@@ -38,19 +38,20 @@
 	"productcategory.h"
 	"menu.h"
 
-1491061323 source:c:\users\javiles\documents\projects\c\medasoft\product.c
+1492474131 source:c:\users\javiles\documents\projects\c\medasoft\product.c
 	"product.h"
+	"productcategory.h"
 	<string.h>
 
-1491172188 source:c:\users\javiles\documents\projects\c\medasoft\factory.c
+1492474321 source:c:\users\javiles\documents\projects\c\medasoft\factory.c
 	"factory.h"
 
-1491172446 c:\users\javiles\documents\projects\c\medasoft\factory.h
+1492112826 c:\users\javiles\documents\projects\c\medasoft\factory.h
 	"product.h"
 	"productcategory.h"
 
-1491172311 c:\users\javiles\documents\projects\c\medasoft\productcategory.h
+1492112826 c:\users\javiles\documents\projects\c\medasoft\productcategory.h
 
-1491172799 source:c:\users\javiles\documents\projects\c\medasoft\productcategory.c
+1492112826 source:c:\users\javiles\documents\projects\c\medasoft\productcategory.c
 	"productcategory.h"
 

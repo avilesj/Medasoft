@@ -8,7 +8,8 @@ struct product
       int id;
       char name[MAX_NAME];
       char measureUnit[5];
-      char category[MAX_CATEGORY];
+      int category;
+      int pricelist;
       char creationDate[10];
       float basePrice;
       float sellingPrice;
@@ -20,8 +21,8 @@ struct product EmptyProduct;
 
 int currentProducts;
 
-int addProduct(int id, float basePrice, float sellingPrice, float upperPercentage, float lowerPercentage, char name[MAX_NAME], char measureUnit[5], char category[MAX_CATEGORY],
-    char creationDate[10]);
+int addProduct(int id, float basePrice, float sellingPrice, float upperPercentage, float lowerPercentage, char name[MAX_NAME], char measureUnit[5], int category,
+    char creationDate[10], int pricelist);
 int searchProduct(int index);
 int validateUpperPercentage(float percentage);
 int validateLowerPercentage(float percentage);

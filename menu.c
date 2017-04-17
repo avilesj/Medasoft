@@ -11,7 +11,7 @@ int printProduct(int index)
   printf("\tID: %d\n", stock[index].id);
   printf("\tNombre: %s", stock[index].name);
   printf("\tUnidad de medida: %s", stock[index].measureUnit);
-  printf("\tCategoria: %s", stock[index].category);
+  printf("\tCategoria: %d", stock[index].category);
   printf("\tFecha de registro: %s", stock[index].creationDate);
   printf("\t\nPrecio de adquisicion: %.2f\n", stock[index].basePrice);
   printf("\tPrecio de ventas: %.2f\n", stock[index].sellingPrice);
@@ -202,8 +202,9 @@ void m_addProduct()
   char name[MAX_NAME];
   float basePrice;
   char measureUnit[5];
-  char category[50];
+  int category;
   char creationDate[10];
+  int pricelist;
   float sellingPrice;
   float upperPercentage;
   float lowerPercentage;
@@ -220,7 +221,7 @@ void m_addProduct()
   printf("Unidad de medida: ");
   fgets(measureUnit, 5, stdin);
   printf("Categoria: ");
-  fgets(category, 50, stdin);
+  scanf("%d", &category);
   printf("Fecha de registro(yyyy-mm-dd): ");
   fgets(creationDate, 10, stdin);
   clear_newlines();
@@ -235,7 +236,7 @@ void m_addProduct()
   scanf("%f", &lowerPercentage);
 
 
-  if(addProduct(id,basePrice, sellingPrice, upperPercentage, lowerPercentage, name, measureUnit, category, creationDate) < 0)
+  if(addProduct(id,basePrice, sellingPrice, upperPercentage, lowerPercentage, name, measureUnit, category, creationDate, pricelist) < 0)
   {
     printf("\n==================================================\n");
     printf("Hubo un error agregando el producto");

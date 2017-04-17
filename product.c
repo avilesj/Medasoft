@@ -1,4 +1,5 @@
 #include "product.h"
+#include "productcategory.h"
 #include <string.h>
 
 currentProducts = 0;
@@ -52,8 +53,8 @@ int searchProduct(int id)
   return -1;
 }
 
-int addProduct(int id, float basePrice, float sellingPrice, float upperPercentage, float lowerPercentage, char name[MAX_NAME], char measureUnit[5], char category[MAX_CATEGORY],
-    char creationDate[10])
+int addProduct(int id, float basePrice, float sellingPrice, float upperPercentage, float lowerPercentage, char name[MAX_NAME], char measureUnit[5], int category,
+    char creationDate[10], int pricelist)
 {
   if(searchProduct(id) != -1)
   {
@@ -73,12 +74,17 @@ int addProduct(int id, float basePrice, float sellingPrice, float upperPercentag
   {
     return -4;
   }
+
+  if(searchProdCategory(category) < 0)
+  {
+    return -5;
+  }
   else
   {
     stock[currentProducts].id = id;
     memcpy(stock[currentProducts].name, name, 50);
     memcpy(stock[currentProducts].measureUnit, measureUnit, 50);
-    memcpy(stock[currentProducts].category, category, 50);
+    stock[currentProducts].category = category;
     memcpy(stock[currentProducts].creationDate, creationDate, 50);
     stock[currentProducts].basePrice = basePrice;
     stock[currentProducts].sellingPrice = sellingPrice;
