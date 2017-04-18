@@ -4,7 +4,7 @@
 #include "product.h"
 #include "productcategory.h"
 #include "menu.h"
-
+#include "pricelist.h"
 int printProduct(int index)
 {
   printf("\n");
@@ -356,7 +356,7 @@ void m_deletePriceList()
     scanf(" %c", &decision);
     if(decision == 'y' || decision =='Y')
     {
-      PriceList[search] = emptyPriceList;
+      priceList[search] = emptypriceList;
       clearScreen();
       printf("Lista eliminada exitosamente\n");
     }

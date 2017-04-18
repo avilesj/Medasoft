@@ -17,11 +17,3 @@ int searchPriceList(int index);
 int deletePriceList(int index);
 #endif
 
-
-
-int currentPriceList;
-
-int addPriceList(int id, char name[MAX_NAME]);
-int searchPriceList(int index);
-
-#endif
