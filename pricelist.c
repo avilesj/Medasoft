@@ -10,8 +10,8 @@ int addPriceList(int id, char name[MAX_NAME])
     }
     else
     {
-        priceList[currentPriceList].id = id;
-        memcpy(priceList[currentpriceLists].name, name, 50);
+        priceLists[currentPriceList].id = id;
+        memcpy(priceLists[currentpriceLists].name, name, 50);
         currentpriceLists++;
         return 0;
     }

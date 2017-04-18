@@ -55,3 +55,50 @@
 1492112826 source:c:\users\javiles\documents\projects\c\medasoft\productcategory.c
 	"productcategory.h"
 
+1492471389 source:c:\users\usuario\documents\github\medasoft\factory.c
+	"factory.h"
+
+1492468868 c:\users\usuario\documents\github\medasoft\factory.h
+	"product.h"
+	"productcategory.h"
+
+1492471389 c:\users\usuario\documents\github\medasoft\product.h
+
+1492468868 c:\users\usuario\documents\github\medasoft\productcategory.h
+
+1492468868 source:c:\users\usuario\documents\github\medasoft\invtools.c
+	"invtools.h"
+	<stdio.h>
+
+1492468868 c:\users\usuario\documents\github\medasoft\invtools.h
+
+1492471389 source:c:\users\usuario\documents\github\medasoft\main.c
+	<stdio.h>
+	<stdlib.h>
+	"menu.h"
+	"factory.h"
+
+1492468868 c:\users\usuario\documents\github\medasoft\menu.h
+
+1492471389 source:c:\users\usuario\documents\github\medasoft\product.c
+	"product.h"
+	"productcategory.h"
+	<string.h>
+
+1492468868 source:c:\users\usuario\documents\github\medasoft\productcategory.c
+	"productcategory.h"
+
+1492476700 source:c:\users\usuario\documents\github\medasoft\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"invtools.h"
+	"product.h"
+	"productcategory.h"
+	"menu.h"
+	"pricelist.h"
+
+1492476570 c:\users\usuario\documents\github\medasoft\pricelist.h
+
+1492476741 source:c:\users\usuario\documents\github\medasoft\pricelist.c
+	"pricelist.h"
+

@@ -26,6 +26,12 @@ int printProductCategory(int index)
   printf("\tID: %d\n", productCategories[index].id);
   printf("\tNombre: %s", productCategories[index].name);
 }
+int printPriceList(int index)
+{
+  printf("\n");
+  printf("\tID: %d\n", priceLists[index].id);
+  printf("\t Nombre: %s", priceLists[index].name);
+}
 
 
 void m_deleteProductCategory()
@@ -356,7 +362,7 @@ void m_deletePriceList()
     scanf(" %c", &decision);
     if(decision == 'y' || decision =='Y')
     {
-      priceList[search] = emptypriceList;
+      priceLists[search] = emptypricelist;
       clearScreen();
       printf("Lista eliminada exitosamente\n");
     }
@@ -460,7 +466,7 @@ void menu()
   else if(option == 5)
   {
     clearScreen();
-    m_searchProductCategory()ProdCategory();
+    m_searchProductCategory();
   }
 
   else if(option == 6)
