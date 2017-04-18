@@ -295,6 +295,126 @@ void m_addProdCategory()
   menu();
 }
 
+void m_addPriceList()
+{
+  clearScreen();
+
+  int id;
+  char name[MAX_NAME];
+
+  printf("==================================================\n");
+  printf("ADICION DE LISTAS DE PRECIO");
+  printf("\n==================================================\n");
+
+  printf("ID: ");
+  scanf("%d", &id);
+  clear_newlines();
+  printf("\nNombre: ");
+  fgets(name, 50, stdin);
+
+  if(addPriceList(id,name) < 0)
+  {
+    printf("\n==================================================\n");
+    printf("Hubo un error agregando la lisa de precio");
+    printf("\n==================================================\n");
+    printf("Presione una tecla para continuar");
+    clear_newlines();
+    getchar();
+  }
+  else
+  {
+    printf("\n==================================================\n");
+    printf("Lista agregada exitosamente!");
+    printf("\n==================================================\n");
+    printf("Presione una tecla para continuar");
+    clear_newlines();
+    getchar();
+  }
+  menu();
+}
+
+void m_deletePriceList()
+{
+
+  int priceList_id;
+  char decision;
+
+  printf("==================================================\n");
+  printf("ELIMINACION DE lISTAS DE PRECIOS EN INVENTARIO");
+  printf("\n==================================================\n");
+
+
+  printf("Favor escriba el ID de la lista de precio que desea eliminar: ");
+  scanf("%d", &priceList_id);
+
+  int search = searchPriceList(priceList_id);
+  if(search >= 0)
+  {
+    printPriceList(search);
+    printf("==================================================\n");
+    printf("ESTA SEGURO QUE DESEA ELIMINAR ESTA LISTA?[Y/N]: ");
+    scanf(" %c", &decision);
+    if(decision == 'y' || decision =='Y')
+    {
+      PriceList[search] = emptyPriceList;
+      clearScreen();
+      printf("Lista eliminada exitosamente\n");
+    }
+    else
+    {
+      menu();
+    }
+  }
+  else
+  {
+    clearScreen();
+    printf("Lista no encontrada\n\n");
+
+  }
+
+  printf("\n==================================================\n");
+  printf("Presione una tecla para continuar");
+  printf("\n==================================================\n");
+  clear_newlines();
+  getchar();
+  menu();
+
+}
+void m_searchPriceList()
+{
+
+  int id;
+  printf("==================================================\n");
+  printf("BUSQUEDA DE LISTAS DE PRECIO EN INVENTARIO");
+  printf("\n==================================================\n");
+
+
+  printf("Favor escriba el ID de la lISTA a consultar: ");
+  scanf("%d", &id);
+
+  int search = searchPriceList(id);
+  if(search >= 0)
+  {
+    printPriceList(search);
+  }
+  else
+  {
+    clearScreen();
+    printf("Lista no encontrado\n\n");
+
+  }
+
+
+  printf("\n==================================================\n");
+  printf("Presione una tecla para continuar");
+  printf("\n==================================================\n");
+  clear_newlines();
+  getchar();
+  menu();
+
+
+}
+
 
 void menu()
 {
@@ -310,6 +430,9 @@ void menu()
   printf("4.  Agregar Categoria\n");
   printf("5.  Mostrar Categorias\n");
   printf("6.  Eliminar Categoria\n");
+  printf("7.  Agregar Lista de Precio\n");
+  printf("8.  Mostrar Lista de Precio\n");
+  printf("9.  Eliminar Lista de Precio\n");
   printf("0.  Salir\n");
   scanf("%d", &option);
 
@@ -323,12 +446,11 @@ void menu()
     clearScreen();
     m_searchProduct();
   }
-  else if(option == 3)
+   else if(option == 3)
   {
     clearScreen();
-    m_addProdCategory();
+    m_deleteProduct();
   }
-
   else if(option == 4)
   {
     clearScreen();
@@ -338,13 +460,31 @@ void menu()
   else if(option == 5)
   {
     clearScreen();
-    m_searchProductCategory();
+    m_searchProductCategory()ProdCategory();
   }
+
   else if(option == 6)
   {
     clearScreen();
     m_deleteProductCategory();
   }
+  else if(option == 7)
+  {
+    clearScreen();
+    m_addPriceList();
+  }
+   else if(option == 8)
+  {
+    clearScreen();
+    m_searchPriceList();
+  }
+
+  else if(option == 9)
+  {
+    clearScreen();
+    m_deletePriceList();
+  }
+
   else if(option == 0)
   {
     exit(0);

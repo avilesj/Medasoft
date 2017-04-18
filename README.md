@@ -3,6 +3,12 @@
 Inventory Software for MEDASOFT inc.
 
 Requirements
+  -Menu has:
+    product
+    Categories
+    suppliers
+
+
   - Manage price list [M-1]
   - Manage suppliers [M-2]
     - Tie suppliers to price lists []
