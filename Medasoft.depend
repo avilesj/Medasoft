@@ -30,13 +30,14 @@
 
 1492474278 c:\users\javiles\documents\projects\c\medasoft\product.h
 
-1492474413 source:c:\users\javiles\documents\projects\c\medasoft\menu.c
+1492480766 source:c:\users\javiles\documents\projects\c\medasoft\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"invtools.h"
 	"product.h"
 	"productcategory.h"
 	"menu.h"
+	"pricelist.h"
 
 1492474131 source:c:\users\javiles\documents\projects\c\medasoft\product.c
 	"product.h"
@@ -100,5 +101,10 @@
 1492476570 c:\users\usuario\documents\github\medasoft\pricelist.h
 
 1492476741 source:c:\users\usuario\documents\github\medasoft\pricelist.c
+	"pricelist.h"
+
+1492480210 c:\users\javiles\documents\projects\c\medasoft\pricelist.h
+
+1492480766 source:c:\users\javiles\documents\projects\c\medasoft\pricelist.c
 	"pricelist.h"
 

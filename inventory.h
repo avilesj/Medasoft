@@ -9,6 +9,7 @@ struct inventory{
     int productAmountSystem;
     int productAmountReal;
     int operation;
+    char createDate[64];
 
 
 }invStock[INVENTORY_MAX];
