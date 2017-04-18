@@ -5,6 +5,7 @@
 #include "productcategory.h"
 #include "menu.h"
 #include "pricelist.h"
+#include "supplier.h"
 int printProduct(int index)
 {
   printf("\n");
@@ -31,6 +32,15 @@ int printPriceList(int index)
   printf("\n");
   printf("\tID: %d\n", priceLists[index].id);
   printf("\t Nombre: %s", priceLists[index].name);
+}
+int printSupplier(int index)
+{
+  printf("\n");
+  printf("\tID: %d\n", suppliers[index].id);
+  printf("\t Nombre: %s", suppliers[index].namecompany);
+  printf("\tID lista de precio: %d\n", suppliers[index].pricelist);
+  printf("\t RNC: %s", suppliers[index].RNC);
+  printf("\t Contactos: %s", suppliers[index].contac);
 }
 
 
@@ -420,6 +430,136 @@ void m_searchPriceList()
 
 
 }
+void m_addSupplier()
+{
+  clearScreen();
+
+  int id;
+  char namecompany[MAX_NAME];
+  int pricelist;
+  char RNC[9];
+  char contac[12];
+
+  printf("==================================================\n");
+  printf("ADICION DE SUPLIDORES");
+  printf("\n==================================================\n");
+
+  printf("ID: ");
+  scanf("%d", &id);
+  clear_newlines();
+  printf("\nNombre de la compañía: ");
+  fgets(namecompany, 50, stdin);
+  clear_newlines();
+  printf("ID Lista De Precio: ");
+  scanf("%d", &pricelist);
+  printf("\nRNC: ");
+  fgets(RNC, 9, stdin);
+  clear_newlines();
+  printf("\nContactos: ");
+  fgets(contac, 12, stdin);
+
+  if(addsupplier(id,namecompany,RNC,contac,pricelist) < 0)
+  {
+    printf("\n==================================================\n");
+    printf("Hubo un error agregando el suplidor");
+    printf("\n==================================================\n");
+    printf("Presione una tecla para continuar");
+    clear_newlines();
+    getchar();
+  }
+  else
+  {
+    printf("\n==================================================\n");
+    printf("Suplidor agregado exitosamente!");
+    printf("\n==================================================\n");
+    printf("Presione una tecla para continuar");
+    clear_newlines();
+    getchar();
+  }
+  menu();
+}
+
+void m_deleteSupplier()
+{
+
+  int supplier_id;
+  char decision;
+
+  printf("==================================================\n");
+  printf("ELIMINACION DE SUPLIDORES EN INVENTARIO");
+  printf("\n==================================================\n");
+
+
+  printf("Favor escriba el ID del supplidor que desea eliminar: ");
+  scanf("%d", &supplier_id);
+
+  int search = searchsupplier(supplier_id);
+  if(search >= 0)
+  {
+    printSupplier(search);
+    printf("==================================================\n");
+    printf("ESTA SEGURO QUE DESEA ELIMINAR ESTE SUPLIDOR?[Y/N]: ");
+    scanf(" %c", &decision);
+    if(decision == 'y' || decision =='Y')
+    {
+      suppliers[search] = Emptysupplier;
+      clearScreen();
+      printf("Suplidor eliminado exitosamente\n");
+    }
+    else
+    {
+      menu();
+    }
+  }
+  else
+  {
+    clearScreen();
+    printf("Suplidor no encontrado\n\n");
+
+  }
+
+  printf("\n==================================================\n");
+  printf("Presione una tecla para continuar");
+  printf("\n==================================================\n");
+  clear_newlines();
+  getchar();
+  menu();
+
+}
+void m_searchSupplier()
+{
+
+  int id;
+  printf("==================================================\n");
+  printf("BUSQUEDA DE SUPLIDOR EN INVENTARIO");
+  printf("\n==================================================\n");
+
+
+  printf("Favor escriba el ID del SUPLIDOR a consultar: ");
+  scanf("%d", &id);
+
+  int search = searchsupplier(id);
+  if(search >= 0)
+  {
+    printSupplier(search);
+  }
+  else
+  {
+    clearScreen();
+    printf("Suplidor no encontrado\n\n");
+
+  }
+
+
+  printf("\n==================================================\n");
+  printf("Presione una tecla para continuar");
+  printf("\n==================================================\n");
+  clear_newlines();
+  getchar();
+  menu();
+
+
+}
 
 
 void menu()
@@ -439,6 +579,9 @@ void menu()
   printf("7.  Agregar Lista de Precio\n");
   printf("8.  Mostrar Lista de Precio\n");
   printf("9.  Eliminar Lista de Precio\n");
+  printf("10. Agregar suplidor\n");
+  printf("11. Mostrar suplidor\n");
+  printf("12. Eliminar suplidor\n");
   printf("0.  Salir\n");
   scanf("%d", &option);
 
@@ -489,6 +632,23 @@ void menu()
   {
     clearScreen();
     m_deletePriceList();
+  }
+
+   else if(option == 10)
+  {
+    clearScreen();
+    m_addSupplier();
+  }
+   else if(option == 11)
+  {
+    clearScreen();
+    m_searchSupplier();
+  }
+
+  else if(option == 12)
+  {
+    clearScreen();
+    m_deleteSupplier();
   }
 
   else if(option == 0)

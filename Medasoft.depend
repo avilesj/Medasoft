@@ -88,7 +88,7 @@
 1492468868 source:c:\users\usuario\documents\github\medasoft\productcategory.c
 	"productcategory.h"
 
-1492476700 source:c:\users\usuario\documents\github\medasoft\menu.c
+1492476884 source:c:\users\usuario\documents\github\medasoft\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"invtools.h"
@@ -101,4 +101,11 @@
 
 1492476741 source:c:\users\usuario\documents\github\medasoft\pricelist.c
 	"pricelist.h"
+
+1492478647 source:c:\users\usuario\documents\github\medasoft\supplier.c
+	"supplier.h"
+	"pricelist.h"
+	<string.h>
+
+1492478480 c:\users\usuario\documents\github\medasoft\supplier.h
 
