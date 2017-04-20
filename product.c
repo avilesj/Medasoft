@@ -1,7 +1,7 @@
 #include "product.h"
 #include "productcategory.h"
 #include <string.h>
-
+#include "product_data.h"
 currentProducts = 0;
 
 int validateUpperPercentage(float percentage)
@@ -42,15 +42,15 @@ int validatePrice(float basePrice, float sellingPrice)
 
 int searchProduct(int id)
 {
-  for(int i =0; i < MAX_STOCK; i++)
-  {
-    if(stock[i].id == id)
-    {
-      return i;
-    }
-  }
+    char chrId[sizeof(id)];
+    sprintf(chrId, "%d", id);
 
-  return -1;
+    if(d_searchProduct(chrId) > 0)
+    {
+        return 0;
+    }
+
+    return -1;
 }
 
 int addProduct(int id, float basePrice, float sellingPrice, float upperPercentage, float lowerPercentage, char name[MAX_NAME], char measureUnit[5], int category,
@@ -90,7 +90,21 @@ int addProduct(int id, float basePrice, float sellingPrice, float upperPercentag
     stock[currentProducts].sellingPrice = sellingPrice;
     stock[currentProducts].upperPercentage = upperPercentage;
     stock[currentProducts].lowerPercentage = lowerPercentage;
+
     currentProducts++;
+
+    d_addProduct(id, basePrice, sellingPrice, upperPercentage, lowerPercentage, name, measureUnit, category,
+    creationDate, pricelist);
+
     return 0;
   }
+}
+
+
+void tprintProduct(int id)
+{
+    char chrId[sizeof(id)];
+    sprintf(chrId, "%d", id);
+
+    d_printProducts(chrId);
 }

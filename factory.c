@@ -2,11 +2,11 @@
 
 void factoryAddProduct()
 {
-addProduct(200, 500.00, 700.00, 5.00, 2.00, "BigMac\n", "oz\n", 300,
+addProduct(200, 500.00, 700.00, 5.00, 2.00, "BigMac", "oz", 300,
     "2017-01-01", 0);
 }
 
 void factoryAddProductCategory()
 {
-    addProdCategory(300, "Hamburguer\n");
+    addProdCategory(300, "Hamburguer");
 }

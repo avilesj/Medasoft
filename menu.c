@@ -151,17 +151,7 @@ void m_searchProduct()
   printf("Favor escriba el numero de ID del numero: ");
   scanf("%d", &product_id);
 
-  int search = searchProduct(product_id);
-  if(search >= 0)
-  {
-    printProduct(search);
-  }
-  else
-  {
-    clearScreen();
-    printf("Producto no encontrado\n\n");
-
-  }
+    tprintProduct(product_id);
 
 
   printf("\n==================================================\n");
@@ -582,6 +572,7 @@ void menu()
   printf("10. Agregar suplidor\n");
   printf("11. Mostrar suplidor\n");
   printf("12. Eliminar suplidor\n");
+  printf("13. Test\n");
   printf("0.  Salir\n");
   scanf("%d", &option);
 
@@ -649,6 +640,16 @@ void menu()
   {
     clearScreen();
     m_deleteSupplier();
+  }
+  else if(option == 13)
+  {
+    clearScreen();
+    tsearchProduct();
+  }
+else if(option == 14)
+  {
+    clearScreen();
+    tprintProduct();
   }
 
   else if(option == 0)

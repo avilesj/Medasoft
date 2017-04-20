@@ -33,6 +33,7 @@
 			<Add option="-std=c99" />
 		</Compiler>
 		<Unit filename="README.md" />
+		<Unit filename="data.h" />
 		<Unit filename="factory.c">
 			<Option compilerVar="CC" />
 			<Option target="Debug" />
@@ -51,14 +52,26 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="menu.h" />
+		<Unit filename="pricelist.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="pricelist.h" />
 		<Unit filename="product.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="product.h" />
+		<Unit filename="product_data.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="product_data.h" />
 		<Unit filename="productcategory.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="productcategory.h" />
+		<Unit filename="supplier.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="supplier.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
