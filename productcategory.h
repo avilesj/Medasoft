@@ -12,8 +12,9 @@ struct productCategory emptyProductCategory;
 
 int currentProdCategories;
 
-int addProdCategory(int id, char name[MAX_NAME]);
-int searchProdCategory(int index);
+int addProdCategory(int id, char name[MAX_NAME], char *error);
+int searchProdCategory(int id);
 int deleteProdCategory(int index);
+int printProductCategory();
 #endif
 

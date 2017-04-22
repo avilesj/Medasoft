@@ -1,33 +1,43 @@
 #include "productcategory.h"
+#include "category_data.h"
 
-int currentProdCategories = 0;
-
-int addProdCategory(int id, char name[MAX_NAME])
+int addProdCategory(int id, char name[MAX_NAME], char *error)
 {
-    if(searchProdCategory(id) != -1)
+    if(searchProdCategory(id) > 0)
+    {
+        strcpy(error,"Categoria ya existe");
+        return -1;
+    }
+    else
+    {
+     d_addProductCategory(id, name);
+        return 0;
+    }
+}
+
+int printProductCategory()
+{
+    if(d_printProductCategories() >= 0)
+    {
+        return 0;
+    }
+
+    return -1;
+}
+
+int searchProdCategory(int id)
+{
+    char chrId[sizeof(id)];
+    sprintf(chrId, "%d", id);
+
+    if(d_searchProductCategory(chrId) < 0)
     {
         return -1;
     }
     else
     {
-        productCategories[currentProdCategories].id = id;
-        memcpy(productCategories[currentProdCategories].name, name, 50);
-        currentProdCategories++;
-        return 0;
+        return 1;
     }
-}
-
-int searchProdCategory(int id)
-{
-    for(int i =0; i < MAX_CATEGORIES; i++)
-    {
-        if(productCategories[i].id == id)
-        {
-            return i;
-        }
-    }
-
-    return -1;
 }
 
 int deleteProdCategory(int id)

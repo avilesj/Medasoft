@@ -6,42 +6,38 @@
 #include "menu.h"
 #include "pricelist.h"
 #include "supplier.h"
-int printProduct(int index)
-{
-  printf("\n");
-  printf("\tID: %d\n", stock[index].id);
-  printf("\tNombre: %s", stock[index].name);
-  printf("\tUnidad de medida: %s", stock[index].measureUnit);
-  printf("\tCategoria: %d", stock[index].category);
-  printf("\tFecha de registro: %s", stock[index].creationDate);
-  printf("\t\nPrecio de adquisicion: %.2f\n", stock[index].basePrice);
-  printf("\tPrecio de ventas: %.2f\n", stock[index].sellingPrice);
-  printf("\tPorcentaje superior: %f\n", stock[index].upperPercentage);
-  printf("\tPorcentaje inferior: %f\n\n", stock[index].lowerPercentage);
-}
 
+char error[50];
 
-int printProductCategory(int index)
-{
-  printf("\n");
-  printf("\tID: %d\n", productCategories[index].id);
-  printf("\tNombre: %s", productCategories[index].name);
-}
-int printPriceList(int index)
-{
-  printf("\n");
-  printf("\tID: %d\n", priceLists[index].id);
-  printf("\t Nombre: %s", priceLists[index].name);
-}
-int printSupplier(int index)
-{
-  printf("\n");
-  printf("\tID: %d\n", suppliers[index].id);
-  printf("\t Nombre: %s", suppliers[index].namecompany);
-  printf("\tID lista de precio: %d\n", suppliers[index].pricelist);
-  printf("\t RNC: %s", suppliers[index].RNC);
-  printf("\t Contactos: %s", suppliers[index].contac);
-}
+//int printProduct(int index)
+//{
+//  printf("\n");
+//  printf("\tID: %d\n", stock[index].id);
+//  printf("\tNombre: %s", stock[index].name);
+//  printf("\tUnidad de medida: %s", stock[index].measureUnit);
+//  printf("\tCategoria: %d", stock[index].category);
+//  printf("\tFecha de registro: %s", stock[index].creationDate);
+//  printf("\t\nPrecio de adquisicion: %.2f\n", stock[index].basePrice);
+//  printf("\tPrecio de ventas: %.2f\n", stock[index].sellingPrice);
+//  printf("\tPorcentaje superior: %f\n", stock[index].upperPercentage);
+//  printf("\tPorcentaje inferior: %f\n\n", stock[index].lowerPercentage);
+//}
+
+//int printPriceList(int index)
+//{
+//  printf("\n");
+//  printf("\tID: %d\n", priceLists[index].id);
+//  printf("\t Nombre: %s", priceLists[index].name);
+//}
+//int printSupplier(int index)
+//{
+//  printf("\n");
+//  printf("\tID: %d\n", suppliers[index].id);
+//  printf("\t Nombre: %s", suppliers[index].namecompany);
+//  printf("\tID lista de precio: %d\n", suppliers[index].pricelist);
+//  printf("\t RNC: %s", suppliers[index].RNC);
+//  printf("\t Contactos: %s", suppliers[index].contac);
+//}
 
 
 void m_deleteProductCategory()
@@ -58,30 +54,6 @@ void m_deleteProductCategory()
   printf("Favor escriba el ID de la categoria de producto a eliminar: ");
   scanf("%d", &productCategory_id);
 
-  int search = searchProdCategory(productCategory_id);
-  if(search >= 0)
-  {
-    printProductCategory(search);
-    printf("==================================================\n");
-    printf("ESTA SEGURO QUE DESEA ELIMINAR ESTA CATEGORIA?[Y/N]: ");
-    scanf(" %c", &decision);
-    if(decision == 'y' || decision =='Y')
-    {
-      productCategories[search] = emptyProductCategory;
-      clearScreen();
-      printf("Categoria eliminada exitosamente\n");
-    }
-    else
-    {
-      menu();
-    }
-  }
-  else
-  {
-    clearScreen();
-    printf("Categoria no encontrada\n\n");
-
-  }
 
   printf("\n==================================================\n");
   printf("Presione una tecla para continuar");
@@ -105,30 +77,6 @@ void m_deleteProduct()
   printf("Favor escriba el ID del producto a eliminar: ");
   scanf("%d", &product_id);
 
-  int search = searchProduct(product_id);
-  if(search >= 0)
-  {
-    printProduct(search);
-    printf("==================================================\n");
-    printf("ESTA SEGURO QUE DESEA ELIMINAR ESTE PRODUCTO?[Y/N]: ");
-    scanf(" %c", &decision);
-    if(decision == 'y' || decision =='Y')
-    {
-      stock[search] = EmptyProduct;
-      clearScreen();
-      printf("Producto eliminado exitosamente\n");
-    }
-    else
-    {
-      menu();
-    }
-  }
-  else
-  {
-    clearScreen();
-    printf("Producto no encontrado\n\n");
-
-  }
 
   printf("\n==================================================\n");
   printf("Presione una tecla para continuar");
@@ -168,24 +116,39 @@ void m_searchProduct()
 void m_searchProductCategory()
 {
 
-  int id;
   printf("==================================================\n");
   printf("BUSQUEDA DE CATEGORIAS EN INVENTARIO");
   printf("\n==================================================\n");
 
-
-  printf("Favor escriba el ID de la categoria a consultar: ");
-  scanf("%d", &id);
-
-  int search = searchProdCategory(id);
-  if(search >= 0)
-  {
-    printProductCategory(search);
-  }
-  else
+  if(printProductCategory()<0)
   {
     clearScreen();
-    printf("Categoria no encontrado\n\n");
+    printf("No hay categorias en el sistema\n\n");
+
+  }
+
+
+  printf("\n==================================================\n");
+  printf("Presione una tecla para continuar");
+  printf("\n==================================================\n");
+  clear_newlines();
+  getchar();
+  menu();
+
+
+}
+
+void m_searchPricelist()
+{
+
+  printf("==================================================\n");
+  printf("BUSQUEDA DE LISTAS DE PRECIO EN INVENTARIO");
+  printf("\n==================================================\n");
+
+  if(printPricelists()<0)
+  {
+    clearScreen();
+    printf("No hay listas de precio en el sistema\n\n");
 
   }
 
@@ -221,31 +184,29 @@ void m_addProduct()
 
   printf("ID: ");
   scanf("%d", &id);
-  clear_newlines();
   printf("\nNombre: ");
-  fgets(name, 50, stdin);
+  scanf("%s", name);
   printf("Unidad de medida: ");
-  fgets(measureUnit, 5, stdin);
-  printf("Categoria: ");
-  scanf("%d", &category);
+  scanf("%s", measureUnit);
   printf("Fecha de registro(yyyy-mm-dd): ");
-  fgets(creationDate, 10, stdin);
-  clear_newlines();
+  scanf("%s", &creationDate);
+  printf("Lista de precio: ");
+  fscanf(stdin,"%d", &pricelist);
   printf("Precio de adquisicion: ");
   scanf("%f", &basePrice);
   printf("Precio de venta: ");
-  clear_newlines();
   scanf("%f", &sellingPrice);
   printf("Porcentaje superior: ");
   scanf("%f", &upperPercentage);
   printf("Porcentaje inferior: ");
   scanf("%f", &lowerPercentage);
+  printf("Categoria: ");
+  scanf(" %d", &category);
 
-
-  if(addProduct(id,basePrice, sellingPrice, upperPercentage, lowerPercentage, name, measureUnit, category, creationDate, pricelist) < 0)
+  if(addProduct(id,basePrice, sellingPrice, upperPercentage, lowerPercentage, name, measureUnit, category, creationDate, pricelist, error) < 0)
   {
     printf("\n==================================================\n");
-    printf("Hubo un error agregando el producto");
+    printf("Hubo un error agregando el producto: %s", error);
     printf("\n==================================================\n");
     printf("Presione una tecla para continuar");
     clear_newlines();
@@ -278,12 +239,12 @@ void m_addProdCategory()
   scanf("%d", &id);
   clear_newlines();
   printf("\nNombre: ");
-  fgets(name, 50, stdin);
+  scanf("%s", &name);
 
-  if(addProdCategory(id,name) < 0)
+  if(addProdCategory(id,name, error) < 0)
   {
     printf("\n==================================================\n");
-    printf("Hubo un error agregando la categoria");
+    printf("Hubo un error agregando la categoria: %s", error);
     printf("\n==================================================\n");
     printf("Presione una tecla para continuar");
     clear_newlines();
@@ -316,12 +277,12 @@ void m_addPriceList()
   scanf("%d", &id);
   clear_newlines();
   printf("\nNombre: ");
-  fgets(name, 50, stdin);
+  scanf("%s", &name);
 
-  if(addPriceList(id,name) < 0)
+  if(addPriceList(id,name, error) < 0)
   {
     printf("\n==================================================\n");
-    printf("Hubo un error agregando la lisa de precio");
+    printf("Hubo un error agregando la lisa de precio: %s", error);
     printf("\n==================================================\n");
     printf("Presione una tecla para continuar");
     clear_newlines();
@@ -354,61 +315,6 @@ void m_deletePriceList()
   scanf("%d", &priceList_id);
 
   int search = searchPriceList(priceList_id);
-  if(search >= 0)
-  {
-    printPriceList(search);
-    printf("==================================================\n");
-    printf("ESTA SEGURO QUE DESEA ELIMINAR ESTA LISTA?[Y/N]: ");
-    scanf(" %c", &decision);
-    if(decision == 'y' || decision =='Y')
-    {
-      priceLists[search] = emptypricelist;
-      clearScreen();
-      printf("Lista eliminada exitosamente\n");
-    }
-    else
-    {
-      menu();
-    }
-  }
-  else
-  {
-    clearScreen();
-    printf("Lista no encontrada\n\n");
-
-  }
-
-  printf("\n==================================================\n");
-  printf("Presione una tecla para continuar");
-  printf("\n==================================================\n");
-  clear_newlines();
-  getchar();
-  menu();
-
-}
-void m_searchPriceList()
-{
-
-  int id;
-  printf("==================================================\n");
-  printf("BUSQUEDA DE LISTAS DE PRECIO EN INVENTARIO");
-  printf("\n==================================================\n");
-
-
-  printf("Favor escriba el ID de la lISTA a consultar: ");
-  scanf("%d", &id);
-
-  int search = searchPriceList(id);
-  if(search >= 0)
-  {
-    printPriceList(search);
-  }
-  else
-  {
-    clearScreen();
-    printf("Lista no encontrado\n\n");
-
-  }
 
 
   printf("\n==================================================\n");
@@ -418,8 +324,41 @@ void m_searchPriceList()
   getchar();
   menu();
 
-
 }
+//void m_searchPriceList()
+//{
+//
+//  int id;
+//  printf("==================================================\n");
+//  printf("BUSQUEDA DE LISTAS DE PRECIO EN INVENTARIO");
+//  printf("\n==================================================\n");
+//
+//
+//  printf("Favor escriba el ID de la lISTA a consultar: ");
+//  scanf("%d", &id);
+//
+//  int search = searchPriceList(id);
+//  if(search >= 0)
+//  {
+//    printPriceList(search);
+//  }
+//  else
+//  {
+//    clearScreen();
+//    printf("Lista no encontrado\n\n");
+//
+//  }
+//
+//
+//  printf("\n==================================================\n");
+//  printf("Presione una tecla para continuar");
+//  printf("\n==================================================\n");
+//  clear_newlines();
+//  getchar();
+//  menu();
+//
+//
+//}
 void m_addSupplier()
 {
   clearScreen();
@@ -484,29 +423,6 @@ void m_deleteSupplier()
   scanf("%d", &supplier_id);
 
   int search = searchsupplier(supplier_id);
-  if(search >= 0)
-  {
-    printSupplier(search);
-    printf("==================================================\n");
-    printf("ESTA SEGURO QUE DESEA ELIMINAR ESTE SUPLIDOR?[Y/N]: ");
-    scanf(" %c", &decision);
-    if(decision == 'y' || decision =='Y')
-    {
-      suppliers[search] = Emptysupplier;
-      clearScreen();
-      printf("Suplidor eliminado exitosamente\n");
-    }
-    else
-    {
-      menu();
-    }
-  }
-  else
-  {
-    clearScreen();
-    printf("Suplidor no encontrado\n\n");
-
-  }
 
   printf("\n==================================================\n");
   printf("Presione una tecla para continuar");
@@ -516,6 +432,7 @@ void m_deleteSupplier()
   menu();
 
 }
+
 void m_searchSupplier()
 {
 
@@ -529,16 +446,6 @@ void m_searchSupplier()
   scanf("%d", &id);
 
   int search = searchsupplier(id);
-  if(search >= 0)
-  {
-    printSupplier(search);
-  }
-  else
-  {
-    clearScreen();
-    printf("Suplidor no encontrado\n\n");
-
-  }
 
 
   printf("\n==================================================\n");
@@ -613,38 +520,12 @@ void menu()
     clearScreen();
     m_addPriceList();
   }
+
    else if(option == 8)
   {
-    clearScreen();
-    m_searchPriceList();
-  }
+      clearScreen();
+      m_searchPricelist();
 
-  else if(option == 9)
-  {
-    clearScreen();
-    m_deletePriceList();
-  }
-
-   else if(option == 10)
-  {
-    clearScreen();
-    m_addSupplier();
-  }
-   else if(option == 11)
-  {
-    clearScreen();
-    m_searchSupplier();
-  }
-
-  else if(option == 12)
-  {
-    clearScreen();
-    m_deleteSupplier();
-  }
-  else if(option == 13)
-  {
-    clearScreen();
-    tsearchProduct();
   }
 else if(option == 14)
   {

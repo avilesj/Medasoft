@@ -40,6 +40,18 @@ int validatePrice(float basePrice, float sellingPrice)
   }
 }
 
+int validateNegative(float basePrice, float sellingPrice)
+{
+  if(basePrice < 0 || sellingPrice < 0)
+  {
+    return -1;
+  }
+  else
+  {
+    return 0;
+  }
+}
+
 int searchProduct(int id)
 {
     char chrId[sizeof(id)];
@@ -54,31 +66,42 @@ int searchProduct(int id)
 }
 
 int addProduct(int id, float basePrice, float sellingPrice, float upperPercentage, float lowerPercentage, char name[MAX_NAME], char measureUnit[5], int category,
-    char creationDate[10], int pricelist)
+    char creationDate[10], int pricelist, char *error)
 {
-  if(searchProduct(id) != -1)
+  if(searchProduct(id) > -1)
   {
+    strcpy(error,"Producto ya existe.");
     return -1;
   }
 
   if(validateUpperPercentage(upperPercentage) != 0)
   {
+    strcpy(error,"Porcentaje superior invalido.");
     return -2;
   }
   if(validateLowerPercentage(lowerPercentage) !=0)
   {
+    strcpy(error,"Porcentaje inferior invalido.");
     return -3;
   }
 
   if(validatePrice(basePrice, sellingPrice) !=0)
   {
+    strcpy(error,"El precio de venta debe ser mayor al precio base");
     return -4;
+  }
+    if(validateNegative(basePrice, sellingPrice) !=0)
+  {
+    strcpy(error,"Los precios no pueden tener valores negativos");
+    return -5;
   }
 
   if(searchProdCategory(category) < 0)
   {
-    return -5;
+    strcpy(error,"Categoria no existe");
+    return -6;
   }
+
   else
   {
     stock[currentProducts].id = id;

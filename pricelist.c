@@ -1,37 +1,43 @@
 #include "pricelist.h"
+#include "pricelist_data.h"
 
 int currentPriceList = 0;
 
-int addPriceList(int id, char name[MAX_NAME])
+int addPriceList(int id, char name[MAX_NAME], char *error)
 {
-    if(searchPriceList(id) != -1)
+    if(searchPriceList(id) > 0)
     {
+        strcpy(error,"Lista de precio ya existe");
         return -1;
     }
     else
     {
-        priceLists[currentPriceList].id = id;
-        memcpy(priceLists[currentpriceLists].name, name, 50);
-        currentpriceLists++;
+     d_addPricelist(id, name);
         return 0;
     }
 }
 
-int searchPriceList(int id)
+int printPricelists()
 {
-    for(int i =0; i < MAX_PRICELIST; i++)
+    if(d_printPricelists() >= 0)
     {
-        if(priceLists[i].id == id)
-        {
-            return i;
-        }
+        return 0;
     }
 
     return -1;
 }
 
-int deletePriceList(int id)
+int searchPriceList(int id)
 {
-    priceLists[id] = emptypricelist;
-    return 0;
+    char chrId[sizeof(id)];
+    sprintf(chrId, "%d", id);
+
+    if(d_searchPricelists(chrId) < 0)
+    {
+        return -1;
+    }
+    else
+    {
+        return 1;
+    }
 }

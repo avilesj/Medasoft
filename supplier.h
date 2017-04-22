@@ -2,7 +2,6 @@
 #define SUPPLIER_H_
 #define MAX_NAME 50
 #define MAX_SUPPLIER 50
-#define MAX_PRICELIST
 struct supplier
 {
       int id;

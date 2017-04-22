@@ -12,8 +12,8 @@ struct priceList emptypricelist;
 
 int currentpriceLists;
 
-int addPriceList(int id, char name[MAX_NAME]);
+int addPriceList(int id, char name[MAX_NAME], char *error);
 int searchPriceList(int index);
-int deletePriceList(int index);
+int printPricelists();
 #endif
 

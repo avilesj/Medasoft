@@ -18,6 +18,11 @@ int d_searchProduct(char *id)
     {
         file = fopen("products.txt", "r");
 
+        if(file == NULL)
+        {
+            return -1;
+        }
+
         char arr[MAX_LINE_LENGTH];
 
         const char delim[1] = "\t";
@@ -28,10 +33,11 @@ int d_searchProduct(char *id)
             ret = strtok(arr, "\t");
             if(strcmp(ret, id) == 0)
             {
+                fclose(file);
                 return 1;
             }
         }
-        return -1;
+        return -2;
 
 
     }
@@ -52,6 +58,7 @@ int d_printProducts(char *id)
             if(strcmp(ret, id) == 0)
             {
                 formatPrint(printArr);
+                fclose(file);
                 return 1;
             }
         }
