@@ -444,6 +444,8 @@ void m_searchSupplier()
 
     }
 
+clear_newlines();
+getchar();
   menu();
 
 

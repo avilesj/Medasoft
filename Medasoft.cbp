@@ -33,6 +33,10 @@
 			<Add option="-std=c99" />
 		</Compiler>
 		<Unit filename="README.md" />
+		<Unit filename="category_data.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="category_data.h" />
 		<Unit filename="data.h" />
 		<Unit filename="factory.c">
 			<Option compilerVar="CC" />
@@ -56,6 +60,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="pricelist.h" />
+		<Unit filename="pricelist_data.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="pricelist_data.h" />
 		<Unit filename="product.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -72,6 +80,18 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="supplier.h" />
+		<Unit filename="supplier_data.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="supplier_data.h" />
+		<Unit filename="ump.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ump.h" />
+		<Unit filename="ump_data.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ump_data.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
