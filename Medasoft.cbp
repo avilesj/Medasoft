@@ -45,6 +45,14 @@
 		<Unit filename="factory.h">
 			<Option target="Debug" />
 		</Unit>
+		<Unit filename="inventory.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="inventory.h" />
+		<Unit filename="inventory_data.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="inventory_data.h" />
 		<Unit filename="invtools.c">
 			<Option compilerVar="CC" />
 		</Unit>

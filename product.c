@@ -104,17 +104,6 @@ int addProduct(int id, float basePrice, float sellingPrice, float upperPercentag
 
   else
   {
-    stock[currentProducts].id = id;
-    memcpy(stock[currentProducts].name, name, 50);
-    memcpy(stock[currentProducts].measureUnit, measureUnit, 50);
-    stock[currentProducts].category = category;
-    memcpy(stock[currentProducts].creationDate, creationDate, 50);
-    stock[currentProducts].basePrice = basePrice;
-    stock[currentProducts].sellingPrice = sellingPrice;
-    stock[currentProducts].upperPercentage = upperPercentage;
-    stock[currentProducts].lowerPercentage = lowerPercentage;
-
-    currentProducts++;
 
     d_addProduct(id, basePrice, sellingPrice, upperPercentage, lowerPercentage, name, measureUnit, category,
     creationDate, pricelist);
@@ -123,11 +112,14 @@ int addProduct(int id, float basePrice, float sellingPrice, float upperPercentag
   }
 }
 
-
-void tprintProduct(int id)
+int searchProductName(char *id)
 {
-    char chrId[sizeof(id)];
-    sprintf(chrId, "%d", id);
 
-    d_printProducts(chrId);
+    if(d_searchProductName(*id) > 0)
+    {
+        return 0;
+    }
+
+    return -1;
 }
+
