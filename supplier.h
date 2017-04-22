@@ -16,7 +16,8 @@ struct supplier Emptysupplier;
 
 int currentsupplier;
 
-int addsupplier(int id, char namecompany[MAX_NAME], char RNC[9],char contac[12], int pricelist);
-int searchsupplier(int index);
+int addSupplier(int id, char namecompany[MAX_NAME], char RNC[9],char contact[12], int pricelist, char *error);
+int searchSupplier(int index);
+int printSuppliers();
 
 #endif

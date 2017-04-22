@@ -1,44 +1,56 @@
 #include "supplier.h"
 #include "pricelist.h"
 #include <string.h>
+#include "supplier_data.h"
 
 currentsupplier = 0;
-int i =0;
 
 
-int searchsupplier(int id)
+int searchSupplier(int id)
 {
-  for(int i =0 ; i < MAX_SUPPLIER; i++)
-  {
-    if(suppliers[i].id == id)
-    {
-      return i;
-    }
-  }
+    char chrId[sizeof(id)];
+    sprintf(chrId, "%d", id);
 
-  return -1;
+    if(d_searchSupplier(chrId) < 0)
+    {
+        return -1;
+    }
+    else
+    {
+        return 1;
+    }
 }
 
-int addsupplier(int id,  char namecompany[MAX_NAME], char contac[12], char RNC[9], int pricelist)
+int addSupplier(int id, char namecompany[MAX_NAME], char RNC[9],char contact[12], int pricelist, char *error)
 {
-  if(searchsupplier(id) != -1)
+  if(searchSupplier(id) > -1)
   {
+    strcpy(error,"Suplidor ya existe.");
     return -1;
   }
 
-
-  if(searchsupplier(pricelist) < 0)
+  if(searchPriceList(pricelist) < 0)
   {
-    return -5;
+    strcpy(error,"Lista de precio no existe");
+    return -2;
   }
+
   else
   {
-    suppliers[currentsupplier].id = id;
-    memcpy(suppliers[currentsupplier].namecompany, namecompany, 50);
-    memcpy(suppliers[currentsupplier].RNC, RNC, 9);
-    memcpy(suppliers[currentsupplier].contac, contac, 12);
-    suppliers[currentsupplier].pricelist = pricelist;
-    currentsupplier++;
+
+
+    d_addSupplier(id, namecompany, RNC, contact, pricelist);
+
     return 0;
   }
+}
+
+int printSuppliers()
+{
+    if(d_printSuppliers() >= 0)
+    {
+        return 0;
+    }
+
+    return -1;
 }

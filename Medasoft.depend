@@ -30,7 +30,7 @@
 
 1492825366 c:\users\javiles\documents\projects\c\medasoft\product.h
 
-1492831147 source:c:\users\javiles\documents\projects\c\medasoft\menu.c
+1492833556 source:c:\users\javiles\documents\projects\c\medasoft\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"invtools.h"
@@ -115,12 +115,13 @@
 
 1492831171 c:\users\javiles\documents\projects\c\medasoft\pricelist.h
 
-1492831195 c:\users\javiles\documents\projects\c\medasoft\supplier.h
+1492833490 c:\users\javiles\documents\projects\c\medasoft\supplier.h
 
-1492484244 source:c:\users\javiles\documents\projects\c\medasoft\supplier.c
+1492833482 source:c:\users\javiles\documents\projects\c\medasoft\supplier.c
 	"supplier.h"
 	"pricelist.h"
 	<string.h>
+	"supplier_data.h"
 
 1492831074 source:c:\users\javiles\documents\projects\c\medasoft\pricelist.c
 	"pricelist.h"
@@ -148,6 +149,14 @@
 	"data.h"
 
 1492831238 source:c:\users\javiles\documents\projects\c\medasoft\pricelist_data.c
+	"category_data.h"
+	<stdio.h>
+	<stdlib.h>
+
+1492832649 c:\users\javiles\documents\projects\c\medasoft\supplier_data.h
+	"data.h"
+
+1492832325 source:c:\users\javiles\documents\projects\c\medasoft\supplier_data.c
 	"category_data.h"
 	<stdio.h>
 	<stdlib.h>
