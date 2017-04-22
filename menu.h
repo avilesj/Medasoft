@@ -3,7 +3,6 @@
 
 void menu();
 /*Product menu*/
-int printProduct(int id);
 void m_addProduct();
 void m_searchProduct();
 void m_deleteProduct();

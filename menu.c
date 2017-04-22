@@ -11,83 +11,6 @@
 
 char error[50];
 
-//int printProduct(int index)
-//{
-//  printf("\n");
-//  printf("\tID: %d\n", stock[index].id);
-//  printf("\tNombre: %s", stock[index].name);
-//  printf("\tUnidad de medida: %s", stock[index].measureUnit);
-//  printf("\tCategoria: %d", stock[index].category);
-//  printf("\tFecha de registro: %s", stock[index].creationDate);
-//  printf("\t\nPrecio de adquisicion: %.2f\n", stock[index].basePrice);
-//  printf("\tPrecio de ventas: %.2f\n", stock[index].sellingPrice);
-//  printf("\tPorcentaje superior: %f\n", stock[index].upperPercentage);
-//  printf("\tPorcentaje inferior: %f\n\n", stock[index].lowerPercentage);
-//}
-
-//int printPriceList(int index)
-//{
-//  printf("\n");
-//  printf("\tID: %d\n", priceLists[index].id);
-//  printf("\t Nombre: %s", priceLists[index].name);
-//}
-//int printSupplier(int index)
-//{
-//  printf("\n");
-//  printf("\tID: %d\n", suppliers[index].id);
-//  printf("\t Nombre: %s", suppliers[index].namecompany);
-//  printf("\tID lista de precio: %d\n", suppliers[index].pricelist);
-//  printf("\t RNC: %s", suppliers[index].RNC);
-//  printf("\t Contactos: %s", suppliers[index].contac);
-//}
-
-
-void m_deleteProductCategory()
-{
-
-    int productCategory_id;
-    char decision;
-
-    printf("==================================================\n");
-    printf("ELIMINACION DE CATEGORIAS DE PRODUCTOS EN INVENTARIO");
-    printf("\n==================================================\n");
-
-
-    printf("Favor escriba el ID de la categoria de producto a eliminar: ");
-    scanf("%d", &productCategory_id);
-
-
-    printf("\n==================================================\n");
-    printf("Presione una tecla para continuar");
-    printf("\n==================================================\n");
-    clear_newlines();
-    getchar();
-    menu();
-
-}
-
-void m_deleteProduct()
-{
-
-    int product_id;
-    char decision;
-    printf("==================================================\n");
-    printf("ELIMINACION DE PRODUCTOS EN INVENTARIO");
-    printf("\n==================================================\n");
-
-
-    printf("Favor escriba el ID del producto a eliminar: ");
-    scanf("%d", &product_id);
-
-
-    printf("\n==================================================\n");
-    printf("Presione una tecla para continuar");
-    printf("\n==================================================\n");
-    clear_newlines();
-    getchar();
-    menu();
-
-}
 
 void m_searchProduct()
 {
@@ -101,13 +24,18 @@ void m_searchProduct()
     printf("Favor escriba el numero de ID del numero: ");
     scanf("%d", &product_id);
 
+    if(printProduct(product_id, error) != 0)
+    {
 
+        printf("\n==================================================\n");
+        printf("Hubo un error agregando la categoria: %s", error);
+        printf("\n==================================================\n");
+        printf("Presione una tecla para continuar");
+        clear_newlines();
+        getchar();
 
-    printf("\n==================================================\n");
-    printf("Presione una tecla para continuar");
-    printf("\n==================================================\n");
-    clear_newlines();
-    getchar();
+    }
+
     menu();
 
 
@@ -210,8 +138,10 @@ void m_addProduct()
 
     printf("ID: ");
     scanf("%d", &id);
+    getchar();
     printf("\nNombre: ");
-    scanf("%s", name);
+    fgets(name, 50, stdin);
+    strtok(name, "\n");
     printf("Unidad de medida: ");
     scanf("%s", measureUnit);
     printf("Fecha de registro(yyyy-mm-dd): ");
@@ -326,33 +256,6 @@ void m_addPriceList()
     menu();
 }
 
-void m_deletePriceList()
-{
-
-    int priceList_id;
-    char decision;
-
-    printf("==================================================\n");
-    printf("ELIMINACION DE lISTAS DE PRECIOS EN INVENTARIO");
-    printf("\n==================================================\n");
-
-
-    printf("Favor escriba el ID de la lista de precio que desea eliminar: ");
-    scanf("%d", &priceList_id);
-
-    int search = searchPriceList(priceList_id);
-
-
-    printf("\n==================================================\n");
-    printf("Presione una tecla para continuar");
-    printf("\n==================================================\n");
-    clear_newlines();
-    getchar();
-    menu();
-
-}
-
-
 
 void m_stockReport()
 {
@@ -374,17 +277,16 @@ void m_negativeReport()
 {
     clearScreen();
 
-    int selection;
 
     printf("==================================================\n");
-    printf("REPORTE DE MOVIMIENTOS DE INVENTARIO");
+    printf("REPORTE DE CONTEO NEGATIVO DE INVENTARIO");
     printf("\n==================================================\n");
 
-    m_addStockOut();
+    printf("ESTA OPCION NO ESTA DISPONIBLE");
     clear_newlines();
     getchar();
 
-    menu();
+    m_addStock();
 }
 
 void m_addStock()
@@ -453,7 +355,17 @@ void m_addStockIn()
     printf("\nFecha: ");
     scanf("%s", &date);
 
-    addStock(productId, operation, amount, measureUnit, date, error);
+
+    if(addStock(productId, operation, amount, measureUnit, date, error) < 0)
+    {
+        printf("\n==================================================\n");
+        printf("Hubo un error agregando el movimiento: %s", error);
+        printf("\n==================================================\n");
+        printf("Presione una tecla para continuar");
+        clear_newlines();
+        getchar();
+    }
+
 }
 
 
@@ -479,13 +391,21 @@ void m_addStockOut()
     scanf("%f", &amount);
     getchar();
     printf("\nUnidad de medida: ");
-    //scanf("%s", &measureUnit);
     fgets(measureUnit, 5, stdin);
     strtok(measureUnit, "\n");
     printf("\nFecha: ");
     scanf("%s", &date);
 
-    addStock(productId, operation, amount, measureUnit, date, error);
+
+    if(addStock(productId, operation, amount, measureUnit, date, error) < 0)
+    {
+        printf("\n==================================================\n");
+        printf("Hubo un error agregando el movimiento: %s", error);
+        printf("\n==================================================\n");
+        printf("Presione una tecla para continuar");
+        clear_newlines();
+        getchar();
+    }
 }
 
 void m_addSupplier()
@@ -522,6 +442,7 @@ void m_addSupplier()
         printf("Hubo un error agregando el suplidor: %s", error);
         printf("\n==================================================\n");
         printf("Presione una tecla para continuar");
+        clear_newlines();
         getchar();
     }
     else
@@ -536,31 +457,6 @@ void m_addSupplier()
     menu();
 }
 
-void m_deleteSupplier()
-{
-
-    int supplier_id;
-    char decision;
-
-    printf("==================================================\n");
-    printf("ELIMINACION DE SUPLIDORES EN INVENTARIO");
-    printf("\n==================================================\n");
-
-
-    printf("Favor escriba el ID del supplidor que desea eliminar: ");
-    scanf("%d", &supplier_id);
-
-    int search = searchSupplier(supplier_id);
-
-    printf("\n==================================================\n");
-    printf("Presione una tecla para continuar");
-    printf("\n==================================================\n");
-    clear_newlines();
-    getchar();
-    menu();
-
-}
-
 void m_searchSupplier()
 {
 
@@ -568,7 +464,7 @@ void m_searchSupplier()
     printf("==================================================\n");
     printf("LISTADO DE SUPLIDORES");
     printf("\n==================================================\n");
-printf("Favor escriba el numero de ID del suplidor: ");
+    printf("Favor escriba el numero de ID del suplidor: ");
     scanf("%d", &supplier_id);
 
     if(printSuppliers()<0)
@@ -600,19 +496,22 @@ void menu()
     printf("==================================================\n");
     printf("1.  Agregar producto\n");
     printf("2.  Buscar producto\n");
-    printf("3.  Eliminar producto\n");
-    printf("4.  Agregar Categoria\n");
-    printf("5.  Mostrar Categorias\n");
-    printf("6.  Eliminar Categoria\n");
-    printf("7.  Agregar Lista de Precio\n");
-    printf("8.  Mostrar Lista de Precio\n");
-    printf("9.  Agregar Suplidor\n");
-    printf("10. Mostrar suplidor\n");
-    printf("11. Mostrar Plan de unidad de medida\n");
-    printf("12. Reportes\n");
-    printf("13. Test\n");
+    printf("3.  Agregar Categoria\n");
+    printf("4.  Mostrar Categorias\n");
+    printf("5.  Agregar Lista de Precio\n");
+    printf("6.  Mostrar Lista de Precio\n");
+    printf("7.  Agregar Suplidor\n");
+    printf("8.  Mostrar suplidor\n");
+    printf("9.  Mostrar Plan de unidad de medida\n");
+    printf("10. Reportes\n");
     printf("0.  Salir\n");
+    printf("Seleccione una opcion: ");
     scanf("%d", &option);
+
+    while(option < 0 || option > 10)
+    {
+        menu();
+    }
 
     if(option == 1)
     {
@@ -627,62 +526,50 @@ void menu()
     else if(option == 3)
     {
         clearScreen();
-        m_deleteProduct();
-    }
-    else if(option == 4)
-    {
-        clearScreen();
         m_addProdCategory();
     }
-
-    else if(option == 5)
+    else if(option == 4)
     {
         clearScreen();
         m_searchProductCategory();
     }
 
-    else if(option == 6)
-    {
-        clearScreen();
-        m_deleteProductCategory();
-    }
-    else if(option == 7)
+    else if(option == 5)
     {
         clearScreen();
         m_addPriceList();
     }
 
-    else if(option == 8)
+    else if(option == 6)
     {
         clearScreen();
         m_searchPricelist();
+    }
+    else if(option == 7)
+    {
+        clearScreen();
+        m_addSupplier();
+    }
+
+    else if(option == 8)
+    {
+        clearScreen();
+        m_searchSupplier();
 
     }
     else if(option == 9)
     {
         clearScreen();
-        m_addSupplier();
+        m_printUMP();
     }
 
 
     else if(option == 10)
     {
         clearScreen();
-        m_searchSupplier();
-    }
-
-
-    else if(option == 11)
-    {
-        clearScreen();
-        m_printUMP();
-    }
-
-        else if(option == 12)
-    {
-        clearScreen();
         m_addStock();
     }
+
 
     else if(option == 99)
     {

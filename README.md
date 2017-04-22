@@ -3,27 +3,22 @@
 Inventory Software for MEDASOFT inc.
 
 Requirements
-  -Menu has:
-    product
-    Categories
-    suppliers
-
-
-  - Manage price list [M-1]
-  - Manage suppliers [M-2]
-    - Tie suppliers to price lists []
-  - Manage unit measures [J-2]
-  - Manage product categories [J-1]
-  - Manage products [J-3]
-    - Tie products to product categories [Done]
-    - Tie products to price lists [J-4]
-  - Inventory Transactions []
-    - Adjustment []
-    - Variation []
-    - Counting []
-  - Reports []
-    - Inventory transactions []
-    - Products with negative inventory balance []
+  - Menu[DONE]
+  - Manage price list [DONE]
+  - Manage suppliers [DONE]
+    - Tie suppliers to price lists [DONE]
+  - Manage unit measures [PENDING]
+  - Manage product categories [DONE]
+  - Manage products [DONE]
+    - Tie products to product categories [DONE]
+    - Tie products to price lists [DONE]
+  - Inventory Transactions [DONE]
+    - Adjustment [DONE]
+    - Variation [DONE]
+    - Counting [DONE]
+  - Reports [DONE]
+    - Inventory transactions [DONE]
+    - Products with negative inventory balance [PENDING]
 
 
 Tech

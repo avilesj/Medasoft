@@ -8,4 +8,5 @@ int addProduct(int id, float basePrice, float sellingPrice, float upperPercentag
     char creationDate[10], int pricelist, char *error);
 int searchProduct(int index);
 int searchProductName(char *id);
+int printProduct(int id, char *error);
 #endif

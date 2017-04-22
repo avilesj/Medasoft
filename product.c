@@ -65,6 +65,19 @@ int searchProduct(int id)
     return -1;
 }
 
+int printProduct(int id, char *error)
+{
+    char chrId[sizeof(id)];
+    sprintf(chrId, "%d", id);
+
+    if(d_printProducts(chrId) > 0)
+    {
+        return 0;
+    }
+    strcpy(error,"Producto no existe.");
+    return -1;
+}
+
 int addProduct(int id, float basePrice, float sellingPrice, float upperPercentage, float lowerPercentage, char name[MAX_NAME], char measureUnit[5], int category,
     char creationDate[10], int pricelist, char *error)
 {
