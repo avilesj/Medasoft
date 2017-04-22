@@ -36,6 +36,9 @@ void m_searchProduct()
 
     }
 
+    clear_newlines();
+    getchar();
+
     menu();
 
 
@@ -304,7 +307,13 @@ void m_addStock()
     printf("2.  Realizar salida\n");
     printf("3.  Reporte Movimientos\n");
     printf("4.  Reporte Negativos\n");
+    printf("0.  Volver\n");
     scanf("%d", &selection);
+
+    while(selection < 0 || selection > 4)
+    {
+        m_addStock();
+    }
 
     if(selection == 1)
     {
@@ -326,7 +335,12 @@ void m_addStock()
         m_negativeReport();
     }
 
-    menu();
+
+    if(selection == 0)
+    {
+        menu();
+    }
+
 }
 
 void m_addStockIn()
@@ -464,8 +478,6 @@ void m_searchSupplier()
     printf("==================================================\n");
     printf("LISTADO DE SUPLIDORES");
     printf("\n==================================================\n");
-    printf("Favor escriba el numero de ID del suplidor: ");
-    scanf("%d", &supplier_id);
 
     if(printSuppliers()<0)
     {
