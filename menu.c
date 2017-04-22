@@ -352,6 +352,8 @@ void m_deletePriceList()
 
 }
 
+
+
 void m_stockReport()
 {
     clearScreen();
@@ -368,8 +370,7 @@ void m_stockReport()
 
     menu();
 }
-
-void m_stockReport()
+void m_negativeReport()
 {
     clearScreen();
 
@@ -379,7 +380,7 @@ void m_stockReport()
     printf("REPORTE DE MOVIMIENTOS DE INVENTARIO");
     printf("\n==================================================\n");
 
-    getStockReport();
+    m_addStockOut();
     clear_newlines();
     getchar();
 
@@ -468,7 +469,7 @@ void m_addStockOut()
     char date[10];
 
     printf("==================================================\n");
-    printf("ENTRADA DE INVENTARIO");
+    printf("SALIDA DE INVENTARIO");
     printf("\n==================================================\n");
 
     printf("ID del producto: ");
@@ -563,16 +564,17 @@ void m_deleteSupplier()
 void m_searchSupplier()
 {
 
-    int id;
+    int supplier_id;
     printf("==================================================\n");
     printf("LISTADO DE SUPLIDORES");
     printf("\n==================================================\n");
-
+printf("Favor escriba el numero de ID del suplidor: ");
+    scanf("%d", &supplier_id);
 
     if(printSuppliers()<0)
     {
         printf("\n==================================================\n");
-        printf("No se encuentran suplidres");
+        printf("No se encuentran suplidores");
         printf("\n==================================================\n");
         printf("Presione una tecla para continuar");
         clear_newlines();
@@ -607,7 +609,7 @@ void menu()
     printf("9.  Agregar Suplidor\n");
     printf("10. Mostrar suplidor\n");
     printf("11. Mostrar Plan de unidad de medida\n");
-    printf("12. Eliminar suplidor\n");
+    printf("12. Reportes\n");
     printf("13. Test\n");
     printf("0.  Salir\n");
     scanf("%d", &option);
