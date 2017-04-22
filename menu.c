@@ -163,6 +163,31 @@ void m_searchPricelist()
 
 }
 
+void m_printUMP()
+{
+
+  printf("==================================================\n");
+  printf("PLAN DE UNIDAD DE MEDIDA");
+  printf("\n==================================================\n");
+
+  if(printUMP()<0)
+  {
+    clearScreen();
+    printf("No existe plan de unidad de medida\n\n");
+
+  }
+
+
+  printf("\n==================================================\n");
+  printf("Presione una tecla para continuar");
+  printf("\n==================================================\n");
+  clear_newlines();
+  getchar();
+  menu();
+
+
+}
+
 void m_addProduct()
 {
   clearScreen();
@@ -440,9 +465,9 @@ void menu()
   printf("6.  Eliminar Categoria\n");
   printf("7.  Agregar Lista de Precio\n");
   printf("8.  Mostrar Lista de Precio\n");
-  printf("9.  Eliminar Lista de Precio\n");
-  printf("10. Agregar suplidor\n");
-  printf("11. Mostrar suplidor\n");
+  printf("9.  Agregar Suplidor\n");
+  printf("10. Mostrar suplidor\n");
+  printf("11. Mostrar Plan de unidad de medida\n");
   printf("12. Eliminar suplidor\n");
   printf("13. Test\n");
   printf("0.  Salir\n");
@@ -503,6 +528,13 @@ else if(option == 10)
   {
     clearScreen();
     m_searchSupplier();
+  }
+
+
+else if(option == 11)
+  {
+    clearScreen();
+    m_printUMP();
   }
 
   else if(option == 0)

@@ -1,0 +1,7 @@
+Kilogramo	kg	1000
+Hectogramo	hg	100
+Decagramo	dag	10
+Gramo	g	1
+Decigramo	dg	0.1
+Centigramo	cg	0.01
+Miligramo	mg	0.001

@@ -5,11 +5,12 @@
 
 1490155385 c:\users\javiles\documents\projects\c\medasoft\invtools.h
 
-1492648621 source:c:\users\javiles\documents\projects\c\medasoft\main.c
+1492835719 source:c:\users\javiles\documents\projects\c\medasoft\main.c
 	<stdio.h>
 	<stdlib.h>
 	"menu.h"
 	"factory.h"
+	"ump.h"
 
 1490156961 c:\users\javiles\documents\projects\c\medasoft\menu.c
 	"menu.h"
@@ -30,7 +31,7 @@
 
 1492825366 c:\users\javiles\documents\projects\c\medasoft\product.h
 
-1492833556 source:c:\users\javiles\documents\projects\c\medasoft\menu.c
+1492836024 source:c:\users\javiles\documents\projects\c\medasoft\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"invtools.h"
@@ -157,6 +158,21 @@
 	"data.h"
 
 1492832325 source:c:\users\javiles\documents\projects\c\medasoft\supplier_data.c
+	"category_data.h"
+	<stdio.h>
+	<stdlib.h>
+
+1492834487 c:\users\javiles\documents\projects\c\medasoft\ump.h
+
+1492835955 source:c:\users\javiles\documents\projects\c\medasoft\ump.c
+	"ump.h"
+	"ump_data.h"
+	<stdio.h>
+
+1492835803 c:\users\javiles\documents\projects\c\medasoft\ump_data.h
+	"data.h"
+
+1492836037 source:c:\users\javiles\documents\projects\c\medasoft\ump_data.c
 	"category_data.h"
 	<stdio.h>
 	<stdlib.h>
