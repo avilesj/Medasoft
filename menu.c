@@ -356,7 +356,7 @@ void m_addSupplier()
   clearScreen();
 
   int id;
-  char namecompany[MAX_NAME];
+  char namecompany[50];
   int pricelist;
   char RNC[9];
   char contact[12];
@@ -367,13 +367,15 @@ void m_addSupplier()
 
   printf("ID: ");
   scanf("%d", &id);
+  getchar();
   printf("\nNombre de la compañía: ");
-  scanf("%s", &namecompany);
+  fgets(namecompany, 50, stdin);
+  strtok(namecompany, "\n");
     printf("ID Lista De Precio: ");
   scanf("%d", &pricelist);
+  getchar();
   printf("\nRNC: ");
   scanf("%s", &RNC);
-  clear_newlines();
   printf("\nContactos: ");
   scanf("%s", &contact);
 
@@ -383,7 +385,6 @@ void m_addSupplier()
     printf("Hubo un error agregando el suplidor: %s", error);
     printf("\n==================================================\n");
     printf("Presione una tecla para continuar");
-    clear_newlines();
     getchar();
   }
   else
